@@ -1,17 +1,24 @@
 /* Basic Style */
 
 body {
-	background: #fff;
+	/* background: aliceblue; */
 	color: #333;
 	font-family: Lato, sans-serif;
 	background-color:#e4e4e4;
+	/* background: linear-gradient(
+		to-left,
+		rgba(7, 27, 82, 1) 50%
+		rgba(0, 128, 128, 1) 100%
+	); */
 }
+
+
 
 .container {
 	display: block;
 	width: 450px;
 	margin: 10px auto 100px;
-	background-color:#fff;
+	background-color:#b5d7ee;
 	padding:0px 10px 10px 10px;
 	border-radius:10px
 }
@@ -50,7 +57,7 @@ button {
 button {
 	background: none;
 	border: 0px;
-	color: #888;
+	color: #342e2e;
 	font-size: 18px;
 	width: 72px;
 	margin: 10px 0 0;

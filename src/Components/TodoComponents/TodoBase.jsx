@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createRef } from "react";
 import RenderTodoLists from "./RenderTodoLists";
 import "./Todo.css";
 
@@ -9,12 +9,8 @@ class TodoBase extends React.Component {
       todoListData: [],
     };
     this.inputData = "";
-    this.textInputRef = null;
+    this.textInputRef = createRef();
   }
-
-  setTextInput = (element) => {
-    this.textInputRef = element;
-  };
 
   changeValue = (e) => {
     //console.log("changeValue called");
@@ -30,7 +26,7 @@ class TodoBase extends React.Component {
   }
 
   addToList = () => {
-    this.inputData = this.textInputRef.value;
+    this.inputData = this.textInputRef.current.value;
     if (!this.inputData) {
       return;
     }
@@ -43,8 +39,7 @@ class TodoBase extends React.Component {
       { id, value: this.inputData, status },
     ];
     this.setState({ todoListData: updatedTodoList });
-    this.inputData = null;
-    this.textInputRef.value = null;
+    this.textInputRef.current.value = null;
   };
 
   markAsComplete = (id) => {
@@ -88,9 +83,10 @@ class TodoBase extends React.Component {
         <h3>Add Item</h3>
         <div id="input-item">
           <input
-            ref={this.setTextInput}
+            ref={this.textInputRef}
             onKeyUp={this.changeValue}
             type="text"
+            placeholder="Enter Task"
           />
           <button onClick={this.addToList}>Add</button>
         </div>
